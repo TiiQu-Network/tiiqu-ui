@@ -16,13 +16,13 @@
 ## 📦 Installation
 
 ```bash
-  npm install tiiqu-ui
+  npm install @tiiqu/ui
 ```
 
 ## 🚀 Getting Started
 
 ```javascript
-import { Button } from "tiiqu-ui";
+import { Button } from "@tiiqu/ui";
 
 export default function Example() {
   return <Button variant="primary">Click Me</Button>;
