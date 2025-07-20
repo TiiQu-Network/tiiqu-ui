@@ -1,24 +1,6 @@
-import React from "react";
-import { cva } from "class-variance-authority";
+import React, { forwardRef } from "react";
+import { cva, type VariantProps } from "class-variance-authority";
 import { cn } from "../../../lib/utils";
-
-type ButtonProps = React.ButtonHTMLAttributes<HTMLButtonElement> & {
-  variant?:
-    | "primary"
-    | "secondary"
-    | "primaryLight"
-    | "secondaryLight"
-    | "primaryOutline"
-    | "secondaryOutline"
-    | "primaryBorderless"
-    | "secondaryBorderless";
-};
-
-export const Button = ({ className, variant, ...props }: ButtonProps) => {
-  return (
-    <button {...props} className={cn(buttonVariants({ variant }), className)} />
-  );
-};
 
 const buttonVariants = cva(
   "capitalize transition-all ease-in-out duration-300 cursor-pointer font-medium w-full px-4 h-11.75 rounded-sm text-center",
@@ -47,3 +29,21 @@ const buttonVariants = cva(
     },
   },
 );
+
+// Combine props from cva variants and button element
+export type ButtonProps = React.ButtonHTMLAttributes<HTMLButtonElement> &
+  VariantProps<typeof buttonVariants>;
+
+export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
+  ({ className, variant, ...props }, ref) => {
+    return (
+      <button
+        ref={ref}
+        className={cn(buttonVariants({ variant }), className)}
+        {...props}
+      />
+    );
+  },
+);
+
+Button.displayName = "Button";
