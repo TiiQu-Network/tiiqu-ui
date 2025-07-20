@@ -17,7 +17,8 @@
     ".": {
       "import": "./dist/tiiqu-ui.js",
       "require": "./dist/tiiqu-ui.cjs"
-    }
+    },
+    "./style.css": "./dist/tiiqu-ui.css"
   },
   "scripts": {
     "prebuild": "rm -rf dist",

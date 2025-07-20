@@ -28,7 +28,7 @@ export default defineConfig({
       entry: resolve(__dirname, "src/index.ts"),
       name: "tiiqu-ui",
       formats: ["es", "cjs"],
-      fileName: (format) => (format === "es" ? "tiiqu-ui.js" : "tiiqu-ui.cjs"),
+      fileName: "tiiqu-ui",
     },
     rollupOptions: {
       external: ["react", "react-dom", "react/jsx-runtime"],

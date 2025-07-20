@@ -33,6 +33,14 @@ export default function Example() {
 }
 ```
 
+```javascript
+// This library uses Tailwind CSS.
+// Make sure your project includes Tailwind or import the prebuilt CSS in the entry file to the application:
+// eg. index.ts
+
+import "@tiiqu/ui/style.css";
+```
+
 ## 🧱 Components
 
 ```
@@ -78,5 +86,5 @@ You can customize the look and feel of the components using the className props.
 
 ```
 
-[![npm version](https://img.shields.io/npm/v/tiiqu-ui.svg)](https://www.npmjs.com/package/@tiiqu/ui)
+[![npm version](https://img.shields.io/npm/v/@tiiqu/ui)](https://www.npmjs.com/package/@tiiqu/ui)
 [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
