@@ -1,7 +1,7 @@
 {
   "name": "@tiiqu/ui",
   "private": false,
-  "version": "0.0.1",
+  "version": "0.0.0-development",
   "license": "MIT",
   "author": "Babatunde Taiwo",
   "description": "A customizable, accessible, and developer-friendly React UI component library powered by Tailwind CSS, TypeScript, and Vite",
@@ -25,7 +25,8 @@
     "build": "tsc -b && vite build",
     "lint": "eslint .",
     "preview": "vite preview",
-    "prepublish": "npm run build"
+    "prepublish": "npm run build",
+    "semantic-release": "semantic-release"
   },
   "dependencies": {
     "@tailwindcss/vite": "^4.1.11",
@@ -47,9 +48,17 @@
     "eslint-plugin-react-hooks": "^5.2.0",
     "eslint-plugin-react-refresh": "^0.4.20",
     "globals": "^16.3.0",
+    "semantic-release": "^24.2.7",
     "typescript": "~5.8.3",
     "typescript-eslint": "^8.35.1",
     "vite": "^7.0.5"
+  },
+  "files": [
+    "dist",
+    "README.md"
+  ],
+  "publishConfig": {
+    "access": "public"
   },
   "keywords": [
     "react",
