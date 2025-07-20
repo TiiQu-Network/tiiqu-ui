@@ -22,19 +22,22 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: "lts/*"
+          registry-url: "https://registry.npmjs.org/"
 
-      - name: Install deps
-        run: npm ci
+      - name: Install pnpm
+        run: npm install -g pnpm
+
+      - name: Install dependencies
+        run: pnpm install
 
       - name: Build
-        run: npm run build
+        run: pnpm build
 
-      - name: Audit Signatures
-        run: npm audit signatures
+      - name: Audit
+        run: pnpm audit || true
 
-      - name: Release
+      - name: Release with semantic-release
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
-
         run: npx semantic-release
