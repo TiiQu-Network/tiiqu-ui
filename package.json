@@ -20,16 +20,18 @@
     }
   },
   "scripts": {
-    "dev": "vite",
     "prebuild": "rm -rf dist",
     "build": "tsc -b && vite build",
+    "prepublish": "npm run build",
+    "dev": "vite",
+    "preview": "vite preview",
     "check": "tsc --noEmit && eslint . --ext .ts,.tsx",
     "lint": "eslint .",
-    "preview": "vite preview",
-    "prepublish": "npm run build",
-    "semantic-release": "semantic-release",
+    "test": "vitest",
+    "coverage": "vitest run --coverage",
     "storybook": "storybook dev -p 6006",
-    "build-storybook": "storybook build"
+    "build-storybook": "storybook build",
+    "semantic-release": "semantic-release"
   },
   "dependencies": {
     "@tailwindcss/vite": "^4.1.11",

@@ -1,6 +1,10 @@
-![Logo](https://v2.pdf2qa.org/images/logo-primary.svg)
+<p align="center">
+  <img src="https://v2.pdf2qa.org/images/logo-primary.svg" alt="Logo" width="150" />
+</p>
 
-✨ A customizable, accessible, and developer-friendly React UI component library powered by Tailwind CSS, TypeScript, and Vite.
+<p align="center">
+  ✨ A customizable, accessible, and developer-friendly React UI component library powered by Tailwind CSS, TypeScript, and Vite.
+</p>
 
 ## ⚙️ Technologies
 
@@ -74,5 +78,5 @@ You can customize the look and feel of the components using the className props.
 
 ```
 
-[![npm version](https://img.shields.io/npm/v/tiiqu-ui.svg)](https://www.npmjs.com/package/tiiqu-ui)
+[![npm version](https://img.shields.io/npm/v/tiiqu-ui.svg)](https://www.npmjs.com/package/@tiiqu/ui)
 [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
