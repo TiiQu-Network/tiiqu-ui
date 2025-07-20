@@ -3,25 +3,26 @@ import { cva, type VariantProps } from "class-variance-authority";
 import { cn } from "../../../lib/utils";
 
 const buttonVariants = cva(
-  "capitalize transition-all ease-in-out duration-300 cursor-pointer font-medium w-full px-4 h-11.75 rounded-sm text-center",
+  "capitalize transition-all ease-in-out duration-300 cursor-pointer font-medium w-full px-4 h-[2.9375rem] rounded-sm text-center",
   {
     variants: {
       variant: {
-        primary: "bg-primary text-white hover:brightness-75 focus:outline-none",
+        primary:
+          "bg-[#7dffef] text-white hover:brightness-75 focus:outline-none",
         secondary:
-          "bg-secondary text-white hover:brightness-75 focus:outline-none",
+          "bg-[#4b7d94] text-white hover:brightness-75 focus:outline-none",
         primaryLight:
-          "bg-primaryLight text-white hover:brightness-75 focus:outline-none",
+          "bg-[#18e1c966] text-white hover:brightness-75 focus:outline-none",
         secondaryLight:
-          "bg-secondaryLight text-secondary hover:brightness-75 focus:outline-none",
+          "bg-[#0344594d] text-[#4b7d94] hover:brightness-75 focus:outline-none",
         primaryOutline:
-          "border border-primary text-primary hover:brightness-75 focus:outline-none",
+          "border border-[#7dffef] text-[#7dffef] hover:brightness-75 focus:outline-none",
         secondaryOutline:
-          "border border-primaryGray text-secondaryLight hover:brightness-75 focus:outline-none",
+          "border border-[#e0e0e0] text-[#0344594d] hover:brightness-75 focus:outline-none",
         primaryBorderless:
-          "text-primary hover:brightness-75 focus:outline-none",
+          "text-[#7dffef] hover:brightness-75 focus:outline-none",
         secondaryBorderless:
-          "text-secondaryGray hover:brightness-75 focus:outline-none",
+          "text-[#03445966] hover:brightness-75 focus:outline-none",
       },
     },
     defaultVariants: {

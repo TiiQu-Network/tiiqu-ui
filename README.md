@@ -3,7 +3,7 @@
 </p>
 
 <p align="center">
-  ✨ A customizable, accessible, and developer-friendly React UI component library powered by Tailwind CSS, TypeScript, and Vite.
+  ✨ A customizable, accessible, and developer-friendly React UI component library powered by **Tailwind CSS**, **TypeScript**, and **Vite**.
 </p>
 
 ## ⚙️ Technologies
@@ -17,10 +17,23 @@
 [![tailwind-merge](https://img.shields.io/badge/tw--merge-06b6d4?style=for-the-badge&logo=tailwindcss&logoColor=white)](https://github.com/dcastil/tailwind-merge)
 [![class-variance-authority](https://img.shields.io/badge/CVA-8b5cf6?style=for-the-badge&logo=vercel&logoColor=white)](https://cva.style)
 
+## ✨ Features
+
+- 🎨 **Pre-styled Components** using raw CSS hex values (no custom theme required)
+- ⚛️ **React 19** with `forwardRef` and `class-variance-authority`
+- 🌀 **Tailwind CSS v3+ compatible** — no theme extension required
+- 💅 Consistent design using `cva` and `tailwind-merge`
+- 📦 Tree-shakable, typed, and optimized via Vite
+- 📚 Storybook and TypeScript support
+
 ## 📦 Installation
 
+Install the library (and make sure your app has Tailwind):
+
 ```bash
-  npm install @tiiqu/ui
+pnpm add @tiiqu/ui
+# or
+npm install @tiiqu/ui
 ```
 
 ## 🚀 Getting Started
@@ -83,6 +96,11 @@ You can customize the look and feel of the components using the className props.
   --color-primaryGray: #e0e0e0;
   --color-secondaryGray: #03445966;
 }
+
+```
+
+```
+⚠️ This package requires Tailwind CSS v3.0.0 or later to be installed in your project.
 
 ```
 
