@@ -1,13 +1,12 @@
+/**
+ * @type {import('semantic-release').GlobalConfig}
+ */
 module.exports = {
-  branches: ["main", { name: "next", prerelease: true }],
-  tagFormat: "v${version}",
-  preset: "conventionalcommits",
+  branches: ["main", "next"],
   plugins: [
     "@semantic-release/commit-analyzer",
     "@semantic-release/release-notes-generator",
-    "@semantic-release/changelog",
     "@semantic-release/npm",
-    "@semantic-release/github",
+    "@semantic-release/git",
   ],
-  changelogFile: "CHANGELOG.md",
 };
