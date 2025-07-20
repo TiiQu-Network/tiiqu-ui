@@ -3,7 +3,7 @@
 </p>
 
 <p align="center">
-  ✨ A customizable, accessible, and developer-friendly React UI component library powered by **Tailwind CSS**, **TypeScript**, and **Vite**.
+  ✨ A customizable, accessible, and developer-friendly React UI component library powered by <strong>Tailwind CSS</strong> , <strong>TypeScript</strong>, and <strong>Vite</strong>.
 </p>
 
 ## ⚙️ Technologies
@@ -44,14 +44,6 @@ import { Button } from "@tiiqu/ui";
 export default function Example() {
   return <Button variant="primary">Click Me</Button>;
 }
-```
-
-```javascript
-// This library uses Tailwind CSS.
-// Make sure your project includes Tailwind or import the prebuilt CSS in the entry file to the application:
-// eg. index.ts
-
-import "@tiiqu/ui/style.css";
 ```
 
 ## 🧱 Components
