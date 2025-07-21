@@ -1,31 +1,31 @@
-/// <reference types="vitest/config" />
+// vite.config.ts
 import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react";
-import { dirname, resolve } from "path";
+import dts from "vite-plugin-dts";
+import tailwindcss from "@tailwindcss/vite";
+import { resolve, dirname } from "path";
 import { fileURLToPath } from "url";
 import { storybookTest } from "@storybook/addon-vitest/vitest-plugin";
-import tailwindcss from "@tailwindcss/vite";
-import dts from "vite-plugin-dts";
 
-// __dirname for ESM
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
 
 export default defineConfig({
   plugins: [
     react(),
+    tailwindcss(),
     dts({
       insertTypesEntry: true,
       rollupTypes: true,
       tsconfigPath: resolve(__dirname, "tsconfig.app.json"),
     }),
-    tailwindcss(),
   ],
   build: {
     lib: {
       entry: resolve(__dirname, "src/index.ts"),
       name: "tiiqu-ui",
-      fileName: (format) => `index.${format}.js`,
+      formats: ["es", "cjs"],
+      fileName: "index",
     },
     rollupOptions: {
       external: ["react", "react-dom", "react/jsx-runtime"],
@@ -56,11 +56,7 @@ export default defineConfig({
             enabled: true,
             headless: true,
             provider: "playwright",
-            instances: [
-              {
-                browser: "chromium",
-              },
-            ],
+            instances: [{ browser: "chromium" }],
           },
           setupFiles: [".storybook/vitest.setup.ts"],
         },
