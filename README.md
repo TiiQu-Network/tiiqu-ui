@@ -21,7 +21,7 @@
 
 - 🎨 **Pre-styled Components** using raw CSS hex values (no custom theme required)
 - ⚛️ **React 19** with `forwardRef` and `class-variance-authority`
-- 🌀 **Tailwind CSS v3+ compatible** — no theme extension required
+- 🌀 **Tailwind CSS v3+ compatible**
 - 💅 Consistent design using `cva` and `tailwind-merge`
 - 📦 Tree-shakable, typed, and optimized via Vite
 - 📚 Storybook and TypeScript support
@@ -46,12 +46,15 @@ export default function Example() {
 }
 ```
 
-```javascript
-// This library uses Tailwind CSS.
-// Make sure your project includes Tailwind or import the prebuilt CSS in the entry file to the application:
-// eg. index.ts
+### 📦 Tailwind CSS Integration
 
-import "@tiiqu/style.css";
+This library uses [Tailwind CSS](https://tailwindcss.com/docs/functions-and-directives).  
+To ensure styles render correctly, you must include Tailwind in your project and import the precompiled CSS file provided by the library.
+
+In your main CSS file (e.g., `globals.css` or `app.css`), add:
+
+```css
+@import "../../node_modules/@tiiqu/ui/dist/index.css";
 ```
 
 ## 🧱 Components
