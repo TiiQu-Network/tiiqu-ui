@@ -46,6 +46,14 @@ export default function Example() {
 }
 ```
 
+```javascript
+// This library uses Tailwind CSS.
+// Make sure your project includes Tailwind or import the prebuilt CSS in the entry file to the application:
+// eg. index.ts
+
+import "@tiiqu/style.css";
+```
+
 ## 🧱 Components
 
 ```

@@ -1,7 +1,6 @@
 /// <reference types="vitest/config" />
 import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react";
-import tsconfigPaths from "vite-tsconfig-paths";
 import { dirname, resolve } from "path";
 import { fileURLToPath } from "url";
 import { storybookTest } from "@storybook/addon-vitest/vitest-plugin";
@@ -14,21 +13,19 @@ const __dirname = dirname(__filename);
 
 export default defineConfig({
   plugins: [
-    tailwindcss(),
     react(),
-    tsconfigPaths(),
-
     dts({
+      insertTypesEntry: true,
       rollupTypes: true,
       tsconfigPath: resolve(__dirname, "tsconfig.app.json"),
     }),
+    tailwindcss(),
   ],
   build: {
     lib: {
       entry: resolve(__dirname, "src/index.ts"),
       name: "tiiqu-ui",
-      formats: ["es", "cjs"],
-      fileName: "tiiqu-ui",
+      fileName: (format) => `index.${format}.js`,
     },
     rollupOptions: {
       external: ["react", "react-dom", "react/jsx-runtime"],
@@ -40,6 +37,9 @@ export default defineConfig({
         },
       },
     },
+    cssCodeSplit: true,
+    sourcemap: true,
+    emptyOutDir: true,
   },
   test: {
     projects: [

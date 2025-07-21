@@ -7,22 +7,34 @@
   "description": "A customizable, accessible, and developer-friendly React UI component library powered by Tailwind CSS, TypeScript, and Vite",
   "repository": {
     "type": "git",
-    "url": "https://github.com/TiiQu-Network/tiiqu-ui.git",
-    "directory": "src"
+    "url": "https://github.com/TiiQu-Network/tiiqu-ui.git"
   },
   "type": "module",
-  "main": "./dist/tiiqu-ui.cjs",
-  "module": "./dist/tiiqu-ui.js",
+  "main": "./dist/index.es.js",
+  "module": "./dist/index.umd.js",
+  "types": "./dist/types/index.d.ts",
   "exports": {
     ".": {
-      "import": "./dist/tiiqu-ui.js",
-      "require": "./dist/tiiqu-ui.cjs"
-    }
+      "types": "./dist/types/index.d.ts",
+      "import": "./dist/index.es.js",
+      "require": "./dist/index.umd.js"
+    },
+    "./style.css": "./dist/index.css"
+  },
+  "files": [
+    "dist",
+    "README.md"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
+  "engines": {
+    "node": ">=18"
   },
   "scripts": {
     "prebuild": "rm -rf dist",
     "build": "tsc -b && vite build",
-    "prepublish": "npm run build",
+    "prepare": "npm run build",
     "dev": "vite",
     "preview": "vite preview",
     "check": "tsc --noEmit && eslint . --ext .ts,.tsx",
@@ -77,13 +89,6 @@
   },
   "peerDependencies": {
     "tailwindcss": ">=3.0.0"
-  },
-  "files": [
-    "dist",
-    "README.md"
-  ],
-  "publishConfig": {
-    "access": "public"
   },
   "keywords": [
     "react",
