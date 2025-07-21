@@ -37,9 +37,6 @@ export default defineConfig({
         },
       },
     },
-    cssCodeSplit: true,
-    sourcemap: true,
-    emptyOutDir: true,
   },
   test: {
     projects: [

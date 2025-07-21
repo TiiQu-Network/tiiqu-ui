@@ -99,6 +99,15 @@ You can customize the look and feel of the components using the className props.
 
 ```
 
+## 🚧 Coming Soon
+
+We're actively working on expanding the TiiQu UI library with the following components:
+
+- 📊 **Table** — Fully customizable data tables with sorting, pagination, and responsive design.
+- 🪟 **Modal** — Accessible modals with smooth transitions and flexible content areas.
+- 🧾 **Accordion** — Expandable sections for FAQs, nested content, and more.
+- 📚 **SideNav** — Sidebar navigation for complex layouts and dashboards.
+
 ```
 ⚠️ This package requires Tailwind CSS v3.0.0 or later to be installed in your project.
 
