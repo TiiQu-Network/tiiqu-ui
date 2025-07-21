@@ -10,26 +10,14 @@
     "url": "https://github.com/TiiQu-Network/tiiqu-ui.git"
   },
   "type": "module",
-  "main": "./dist/index.cjs",
-  "module": "./dist/index.js",
-  "types": "./dist/types/index.d.ts",
+  "main": "./dist/tiiqu-ui.cjs",
+  "module": "./dist/tiiqu-ui.js",
   "exports": {
     ".": {
-      "types": "./dist/types/index.d.ts",
-      "import": "./dist/index.js",
-      "require": "./dist/index.cjs"
+      "import": "./dist/tiiqu-ui.js",
+      "require": "./dist/tiiqu-ui.cjs"
     },
-    "./style.css": "./dist/index.css"
-  },
-  "files": [
-    "dist",
-    "README.md"
-  ],
-  "publishConfig": {
-    "access": "public"
-  },
-  "engines": {
-    "node": ">=18"
+    "./style.css": "./dist/tiiqu-ui.css"
   },
   "scripts": {
     "prebuild": "rm -rf dist",
@@ -84,11 +72,14 @@
     "typescript-eslint": "^8.35.1",
     "vite": "^7.0.5",
     "vite-plugin-dts": "^4.5.4",
-    "vite-tsconfig-paths": "^5.1.4",
     "vitest": "^3.2.4"
   },
-  "peerDependencies": {
-    "tailwindcss": ">=3.0.0"
+  "files": [
+    "dist",
+    "README.md"
+  ],
+  "publishConfig": {
+    "access": "public"
   },
   "keywords": [
     "react",
