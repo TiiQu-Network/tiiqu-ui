@@ -1,11 +1,12 @@
 /// <reference types="vitest/config" />
 import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react";
-import { dirname, resolve } from "path";
+import path, { dirname, resolve } from "path";
 import { fileURLToPath } from "url";
 import { storybookTest } from "@storybook/addon-vitest/vitest-plugin";
 import tailwindcss from "@tailwindcss/vite";
 import dts from "vite-plugin-dts";
+import { viteStaticCopy } from "vite-plugin-static-copy";
 
 // __dirname for ESM
 const __filename = fileURLToPath(import.meta.url);
@@ -15,6 +16,14 @@ export default defineConfig({
   plugins: [
     react(),
     tailwindcss(),
+    viteStaticCopy({
+      targets: [
+        {
+          src: path.resolve(__dirname, "src/index.css"),
+          dest: "./",
+        },
+      ],
+    }),
     dts({
       insertTypesEntry: true,
       rollupTypes: true,
