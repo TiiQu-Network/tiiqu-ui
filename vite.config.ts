@@ -29,12 +29,13 @@ export default defineConfig({
       fileName: "tiiqu-ui",
     },
     rollupOptions: {
-      external: ["react", "react-dom", "react/jsx-runtime"],
+      external: ["react", "react-dom", "react/jsx-runtime", "tailwindcss"],
       output: {
         globals: {
           react: "React",
           "react-dom": "ReactDOM",
           "react/jsx-runtime": "jsxRuntime",
+          tailwindcss: "tailwindcss",
         },
       },
     },

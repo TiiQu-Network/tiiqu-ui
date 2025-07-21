@@ -7,22 +7,21 @@ const buttonVariants = cva(
   {
     variants: {
       variant: {
-        primary:
-          "bg-[#7dffef] text-white hover:brightness-75 focus:outline-none",
+        primary: "bg-primary text-white hover:brightness-75 focus:outline-none",
         secondary:
-          "bg-[#4b7d94] text-white hover:brightness-75 focus:outline-none",
+          "bg-secondary text-white hover:brightness-75 focus:outline-none",
         primaryLight:
-          "bg-[#18e1c966] text-white hover:brightness-75 focus:outline-none",
+          "bg-primaryLight text-white hover:brightness-75 focus:outline-none",
         secondaryLight:
-          "bg-[#0344594d] text-[#4b7d94] hover:brightness-75 focus:outline-none",
+          "bg-secondaryLight text-secondary hover:brightness-75 focus:outline-none",
         primaryOutline:
-          "border border-[#7dffef] text-[#7dffef] hover:brightness-75 focus:outline-none",
+          "border border-primary text-primary hover:brightness-75 focus:outline-none",
         secondaryOutline:
-          "border border-[#e0e0e0] text-[#0344594d] hover:brightness-75 focus:outline-none",
+          "border border-primaryGray text-secondaryLight hover:brightness-75 focus:outline-none",
         primaryBorderless:
-          "text-[#7dffef] hover:brightness-75 focus:outline-none",
+          "text-primary hover:brightness-75 focus:outline-none",
         secondaryBorderless:
-          "text-[#03445966] hover:brightness-75 focus:outline-none",
+          "text-secondaryGray hover:brightness-75 focus:outline-none",
       },
     },
     defaultVariants: {
