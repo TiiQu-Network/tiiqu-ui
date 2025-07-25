@@ -37,7 +37,6 @@
 	"publishConfig": {
 		"access": "public"
 	},
-
 	"dependencies": {
 		"class-variance-authority": "^0.7.1",
 		"clsx": "^2.1.1",
@@ -47,6 +46,8 @@
 		"@biomejs/biome": "2.1.2",
 		"@chromatic-com/storybook": "^4.0.1",
 		"@eslint/js": "^9.30.1",
+		"@semantic-release/changelog": "github:semantic-release/changelog",
+		"@semantic-release/git": "github:semantic-release/git",
 		"@storybook/addon-a11y": "^9.0.18",
 		"@storybook/addon-docs": "^9.0.18",
 		"@storybook/addon-onboarding": "^9.0.18",
