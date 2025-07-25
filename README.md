@@ -22,6 +22,7 @@
 - 🎨 **Pre-styled Components** using raw CSS hex values (no custom theme required)
 - ⚛️ **React 19** with `forwardRef` and `class-variance-authority`
 - 🌀 **Tailwind CSS v3+ compatible**
+- ✨ **Zero-config styles** with automatic CSS—no setup needed
 - 💅 Consistent design using `cva` and `tailwind-merge`
 - 📦 Tree-shakable, typed, and optimized via Vite
 - 📚 Storybook and TypeScript support
@@ -44,17 +45,6 @@ import { Button } from "@tiiqu/ui";
 export default function Example() {
   return <Button variant="primary">Click Me</Button>;
 }
-```
-
-### 📦 Tailwind CSS Integration
-
-This library uses [Tailwind CSS](https://tailwindcss.com/docs/functions-and-directives).  
-To ensure styles render correctly, you must include Tailwind in your project and import the precompiled CSS file provided by the library.
-
-In your main CSS file (e.g., `globals.css` or `app.css`), add:
-
-```css
-@import "../../node_modules/@tiiqu/ui/dist/index.css";
 ```
 
 ## 🧱 Components

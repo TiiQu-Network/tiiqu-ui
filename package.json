@@ -1,93 +1,113 @@
 {
-  "name": "@tiiqu/ui",
-  "private": false,
-  "version": "1.9.0",
-  "license": "MIT",
-  "author": "Babatunde Taiwo",
-  "description": "A customizable, accessible, and developer-friendly React UI component library powered by Tailwind CSS, TypeScript, and Vite",
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/TiiQu-Network/tiiqu-ui.git"
-  },
-  "type": "module",
-  "main": "./dist/tiiqu-ui.cjs",
-  "module": "./dist/tiiqu-ui.js",
-  "exports": {
-    ".": {
-      "import": "./dist/tiiqu-ui.js",
-      "require": "./dist/tiiqu-ui.cjs"
-    },
-    "./index.css": "./dist/index.css"
-  },
-  "scripts": {
-    "prebuild": "rm -rf dist",
-    "build": "tsc -b && vite build",
-    "prepare": "npm run build",
-    "dev": "vite",
-    "preview": "vite preview",
-    "check": "tsc --noEmit && eslint . --ext .ts,.tsx",
-    "lint": "eslint .",
-    "test": "vitest",
-    "coverage": "vitest run --coverage",
-    "storybook": "storybook dev -p 6006",
-    "build-storybook": "storybook build",
-    "semantic-release": "semantic-release"
-  },
-  "dependencies": {
-    "class-variance-authority": "^0.7.1",
-    "clsx": "^2.1.1",
-    "tailwind-merge": "^3.3.1"
-  },
-  "devDependencies": {
-    "@chromatic-com/storybook": "^4.0.1",
-    "@eslint/js": "^9.30.1",
-    "@semantic-release/changelog": "^6.0.3",
-    "@semantic-release/git": "^10.0.1",
-    "@storybook/addon-a11y": "^9.0.17",
-    "@storybook/addon-docs": "^9.0.17",
-    "@storybook/addon-onboarding": "^9.0.17",
-    "@storybook/addon-styling-webpack": "^2.0.0",
-    "@storybook/addon-vitest": "^9.0.17",
-    "@storybook/builder-vite": "^9.0.17",
-    "@storybook/react-vite": "^9.0.17",
-    "@tailwindcss/vite": "^4.1.11",
-    "@types/node": "^24.0.15",
-    "@types/react": "^19.1.8",
-    "@types/react-dom": "^19.1.6",
-    "@vitejs/plugin-react": "^4.7.0",
-    "@vitest/browser": "^3.2.4",
-    "@vitest/coverage-v8": "^3.2.4",
-    "eslint": "^9.30.1",
-    "eslint-plugin-react-hooks": "^5.2.0",
-    "eslint-plugin-react-refresh": "^0.4.20",
-    "eslint-plugin-storybook": "^9.0.17",
-    "globals": "^16.3.0",
-    "playwright": "^1.54.1",
-    "react": "^19.1.0",
-    "react-dom": "^19.1.0",
-    "semantic-release": "^24.2.7",
-    "storybook": "^9.0.17",
-    "tailwindcss": "^4.1.11",
-    "typescript": "~5.8.3",
-    "typescript-eslint": "^8.35.1",
-    "vite": "^7.0.5",
-    "vite-plugin-dts": "^4.5.4",
-    "vite-plugin-static-copy": "^3.1.1",
-    "vitest": "^3.2.4"
-  },
-  "files": [
-    "dist",
-    "README.md"
-  ],
-  "publishConfig": {
-    "access": "public"
-  },
-  "keywords": [
-    "react",
-    "ui",
-    "component-library",
-    "tailwindcss",
-    "tiiqu-ui",
-    "design-system"
-  ]
+	"name": "@tiiqu/ui",
+	"private": false,
+	"version": "1.9.0",
+	"license": "MIT",
+	"author": "Babatunde Taiwo",
+	"description": "A customizable, accessible, and developer-friendly React UI component library powered by Tailwind CSS, TypeScript, and Vite",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/TiiQu-Network/tiiqu-ui.git"
+	},
+	"main": "./dist/tiiqu-ui-umd.cjs",
+	"module": "./dist/tiiqu-ui.js",
+	"types": "./dist/index.d.ts",
+	"exports": {
+		".": {
+			"types": "./dist/index.d.ts",
+			"import": "./dist/tiiqu-ui.js",
+			"require": "./dist/tiiqu-ui-umd.cjs"
+		}
+	},
+	"scripts": {
+		"prebuild": "rm -rf dist",
+		"build": "tsc -b && vite build",
+		"prepare": "npm run build",
+		"dev": "vite",
+		"preview": "vite preview",
+		"check": "tsc --noEmit && eslint . --ext .ts,.tsx",
+		"lint": "eslint .",
+		"test": "vitest",
+		"coverage": "vitest run --coverage",
+		"storybook": "storybook dev -p 6006",
+		"build-storybook": "storybook build",
+		"semantic-release": "semantic-release"
+	},
+	"publishConfig": {
+		"access": "public"
+	},
+
+	"engines": {
+		"node": ">=18.0.0",
+		"pnpm": ">=8.0.0"
+	},
+	"dependencies": {
+		"class-variance-authority": "^0.7.1",
+		"clsx": "^2.1.1",
+		"tailwind-merge": "^3.3.1"
+	},
+	"devDependencies": {
+		"@biomejs/biome": "2.1.2",
+		"@chromatic-com/storybook": "^4.0.1",
+		"@eslint/js": "^9.30.1",
+		"@storybook/addon-a11y": "^9.0.18",
+		"@storybook/addon-docs": "^9.0.18",
+		"@storybook/addon-onboarding": "^9.0.18",
+		"@storybook/addon-vitest": "^9.0.18",
+		"@storybook/react-vite": "^9.0.18",
+		"@tailwindcss/vite": "^4.1.11",
+		"@types/node": "^24.1.0",
+		"@types/react": "^19.1.8",
+		"@types/react-dom": "^19.1.6",
+		"@vitejs/plugin-react": "^4.6.0",
+		"@vitest/browser": "^3.2.4",
+		"@vitest/coverage-v8": "^3.2.4",
+		"eslint": "^9.30.1",
+		"eslint-plugin-react-hooks": "^5.2.0",
+		"eslint-plugin-react-refresh": "^0.4.20",
+		"eslint-plugin-storybook": "^9.0.18",
+		"globals": "^16.3.0",
+		"playwright": "^1.54.1",
+		"semantic-release": "^24.2.7",
+		"storybook": "^9.0.18",
+		"tailwindcss": "^4.1.11",
+		"typescript": "~5.8.3",
+		"typescript-eslint": "^8.35.1",
+		"vite": "^7.0.4",
+		"vite-plugin-css-injected-by-js": "^3.5.2",
+		"vite-plugin-dts": "^4.5.4",
+		"vite-plugin-static-copy": "^3.1.1",
+		"vite-tsconfig-paths": "^5.1.4",
+		"vitest": "^3.2.4"
+	},
+	"peerDependencies": {
+		"react": "^18.2.0 || ^19.0.0",
+		"react-dom": "^18.2.0 || ^19.0.0"
+	},
+	"files": [
+		"dist",
+		"README.md"
+	],
+	"keywords": [
+		"react",
+		"ui",
+		"component-library",
+		"tailwindcss",
+		"tailwind",
+		"typescript",
+		"vite",
+		"react-components",
+		"design-system",
+		"accessible-ui",
+		"customizable-ui",
+		"react-ui-kit",
+		"frontend",
+		"web-components",
+		"ui-framework",
+		"css-in-js",
+		"react-hooks",
+		"responsive-ui",
+		"modern-ui",
+		"developer-friendly"
+	]
 }
