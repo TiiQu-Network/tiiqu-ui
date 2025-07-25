@@ -9,6 +9,7 @@
 		"type": "git",
 		"url": "https://github.com/TiiQu-Network/tiiqu-ui.git"
 	},
+	"type": "module",
 	"main": "./dist/tiiqu-ui-umd.cjs",
 	"module": "./dist/tiiqu-ui.js",
 	"types": "./dist/index.d.ts",
