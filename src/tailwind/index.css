@@ -1,1 +1,13 @@
 @import "tailwindcss";
+
+@theme {
+	--color-tiiqu-primary: #18e1c9;
+	--color-tiiqu-secondary: #034459;
+
+	--color-tiiqu-primary-light: #18e1c966;
+	--color-tiiqu-secondary-light: #03445966;
+
+	--color-tiiqu-gray: #e6ecee;
+
+	--color-tiiqu-white: #ffffff;
+}
