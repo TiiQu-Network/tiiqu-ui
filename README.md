@@ -189,6 +189,44 @@ export default function Example() {
 | `closeIcon`     | `ReactNode`  | `undefined` | Custom icon to replace default close icon   |
 
 
+---
+
+## 🧾 Accordion Component
+
+The `Accordion` component is a flexible and generic expandable/collapsible UI element that accepts any data type and renders titles and content based on user-provided render functions.
+
+### 🎯 Features
+
+- Fully generic TypeScript support for any data structure
+- Controlled open/close state with smooth animations
+- Accessible with proper ARIA attributes and keyboard interaction
+- Customizable styling via `className` prop
+
+### 📦 Usage
+
+```tsx
+import { Accordion } from "@tiiqu/ui";
+
+const accordionData = [
+  {
+    title: "What is your return policy?",
+    content:
+      "You can return any item within 30 days of purchase as long as it’s in its original condition.",
+  },
+  // more items...
+];
+
+export default function Example() {
+  return (
+    <Accordion
+      data={accordionData}
+      renderTitle={(item) => item.title}
+      renderContent={(item) => item.content}
+      className="my-accordion"
+    />
+  );
+}
+
 
 
 ## 🚧 Coming Soon
@@ -196,7 +234,6 @@ export default function Example() {
 We're actively working on expanding the TiiQu UI library with the following components:
 
 - 📊 **Table** — Fully customizable data tables with sorting, pagination, and responsive design.
-- 🧾 **Accordion** — Expandable sections for FAQs, nested content, and more.
 - 📚 **SideNav** — Sidebar navigation for complex layouts and dashboards.
 
 ```
