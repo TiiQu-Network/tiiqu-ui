@@ -1,8 +1,8 @@
 import type { Meta, StoryObj } from "@storybook/react-vite";
 import React from "react";
-import { Accordion, AccordionProps } from ".";
+import { Accordion, AccordionProps } from "./index";
 
-import { accordionData } from "../../../dummyData/data.ts";
+import { accordionData } from "../../../dummyData/data";
 
 type AccordionDataType = (typeof accordionData)[0];
 
