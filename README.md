@@ -108,6 +108,7 @@ import { Button } from '@/components/ui/button';
 
 ```
 
+
 ## 🎨 Theming
 
 You can customize the look and feel of the components using the className props. Override colors, spacing, or other utilities.
@@ -141,12 +142,60 @@ You can customize the button further by passing your own Tailwind or custom CSS 
 ```
 
 
+## 🪟 Modal
+
+The `Modal` component provides an accessible, customizable modal dialog powered by native HTML `<dialog>` with smooth animations and Tailwind CSS styling.
+
+---
+
+### 🚀 Usage
+
+```tsx
+import { Modal } from "@tiiqu/ui";
+import React, { useState } from "react";
+
+export default function Example() {
+  const [open, setOpen] = useState(false);
+
+  return (
+    <>
+      <button onClick={() => setOpen(true)} className="btn-primary">
+        Open Modal
+      </button>
+
+      <Modal
+        open={open}
+        onClose={() => setOpen(false)}
+        showCloseIcon={true}
+      >
+        <div>
+            <p>This is the modal content area.</p>
+        </div>
+      </Modal>
+    </>
+  );
+}
+```
+
+## 📋 Props
+
+| Name            | Type         | Default     | Description                                 |
+| --------------- | ------------ | ----------- | ------------------------------------------- |
+| `open`          | `boolean`    | required    | Controls visibility of the modal            |
+| `onClose`       | `() => void` | required    | Callback fired when modal requests to close |
+| `children`      | `ReactNode`  | required    | Content inside the modal                    |
+| `className`     | `string`     | `undefined` | Additional CSS classes for modal container  |
+| `showCloseIcon` | `boolean`    | `true`      | Show or hide the close (X) button           |
+| `closeIcon`     | `ReactNode`  | `undefined` | Custom icon to replace default close icon   |
+
+
+
+
 ## 🚧 Coming Soon
 
 We're actively working on expanding the TiiQu UI library with the following components:
 
 - 📊 **Table** — Fully customizable data tables with sorting, pagination, and responsive design.
-- 🪟 **Modal** — Accessible modals with smooth transitions and flexible content areas.
 - 🧾 **Accordion** — Expandable sections for FAQs, nested content, and more.
 - 📚 **SideNav** — Sidebar navigation for complex layouts and dashboards.
 
