@@ -38,7 +38,7 @@ export const AccordionItem: FC<AccordionItemProps> = ({
 					isOpen ? "max-h-fit opacity-100 pb-4" : "max-h-0 opacity-0",
 				)}
 			>
-				<div className="text-sm text-zinc-700 pt-1">{content}</div>
+				<div className="text-sm text-zinc-700">{content}</div>
 			</div>
 		</div>
 	);
