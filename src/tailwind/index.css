@@ -13,3 +13,29 @@
 
 	--color-tiiqu-black: #2e2c34;
 }
+
+.ripple-container {
+	position: relative;
+	overflow: hidden;
+}
+
+.ripple-container {
+	position: relative;
+	overflow: hidden;
+}
+
+.ripple {
+	position: absolute;
+	border-radius: 50%;
+	transform: scale(0);
+	animation: ripple-animation 600ms linear;
+	background-color: rgba(255, 255, 255, 0.5);
+	pointer-events: none;
+}
+
+@keyframes ripple-animation {
+	to {
+		transform: scale(4);
+		opacity: 0;
+	}
+}

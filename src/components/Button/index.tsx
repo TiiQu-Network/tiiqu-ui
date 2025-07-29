@@ -1,6 +1,6 @@
 import { cva, type VariantProps } from "class-variance-authority";
 
-import type { ButtonHTMLAttributes } from "react";
+import { useRef, type ButtonHTMLAttributes, type MouseEvent } from "react";
 
 import { cn } from "@/lib/utils";
 
@@ -17,6 +17,7 @@ const buttonVariants = cva(
 		"min-h-[3.1875em]",
 		"min-w-[13.8125em]",
 		"px-4",
+		"hover:brightness-75",
 	],
 	{
 		variants: {
@@ -61,7 +62,7 @@ const buttonVariants = cva(
 			{
 				intent: "secondary",
 				disabled: false,
-				className: "hover:brightness-90",
+				className: "hover:brightness-85",
 			},
 			{
 				intent: "light_primary",
@@ -96,7 +97,7 @@ const buttonVariants = cva(
 			{
 				intent: "borderless_secondary",
 				disabled: false,
-				class: "hover:brightness-75",
+				className: "hover:brightness-75",
 			},
 		],
 		defaultVariants: {
@@ -119,10 +120,47 @@ export const Button = ({
 	disabled,
 	...props
 }: ButtonProps) => {
+	const buttonRef = useRef<HTMLButtonElement>(null);
+
+	const createRipple = (event: MouseEvent<HTMLButtonElement>) => {
+		const button = buttonRef.current;
+		if (!button) return;
+
+		const ripple = document.createElement("span");
+		ripple.className = "ripple";
+
+		const rect = button.getBoundingClientRect();
+		const size = Math.max(rect.width, rect.height);
+		const x = event.clientX - rect.left - size / 2;
+		const y = event.clientY - rect.top - size / 2;
+
+		ripple.style.width = ripple.style.height = `${size}px`;
+		ripple.style.left = `${x}px`;
+		ripple.style.top = `${y}px`;
+
+		// Get the text color and convert to transparent ripple color
+		const computedStyle = window.getComputedStyle(button);
+		const textColor = computedStyle.color;
+		const rgba = textColor.replace("rgb", "rgba").replace(")", ", 0.2)");
+		ripple.style.backgroundColor = rgba;
+
+		button.appendChild(ripple);
+
+		setTimeout(() => {
+			ripple.remove();
+		}, 1000);
+	};
+
 	return (
 		<button
+			ref={buttonRef}
 			disabled={disabled}
+			onClick={(e) => {
+				if (!disabled) createRipple(e);
+				props.onClick?.(e);
+			}}
 			className={cn(
+				"ripple-container",
 				buttonVariants({ intent, size, fullWidth, disabled }),
 				className,
 			)}
