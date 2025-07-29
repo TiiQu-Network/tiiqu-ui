@@ -1,8 +1,11 @@
 import { cva, type VariantProps } from "class-variance-authority";
 
-import { useRef, type ButtonHTMLAttributes, type MouseEvent } from "react";
-
-import { cn } from "@/lib/utils";
+import React, {
+	useRef,
+	type ButtonHTMLAttributes,
+	type MouseEvent,
+} from "react";
+import { cn } from "../../lib/utils";
 
 const buttonVariants = cva(
 	[
