@@ -93,6 +93,9 @@ importers:
       playwright:
         specifier: ^1.54.1
         version: 1.54.1
+      rollup-preserve-directives:
+        specifier: ^1.1.3
+        version: 1.1.3(rollup@4.45.1)
       semantic-release:
         specifier: ^24.2.7
         version: 24.2.7(typescript@5.8.3)
@@ -111,12 +114,12 @@ importers:
       vite:
         specifier: ^7.0.4
         version: 7.0.5(@types/node@24.1.0)(jiti@2.4.2)(lightningcss@1.30.1)(yaml@2.8.0)
-      vite-plugin-css-injected-by-js:
-        specifier: ^3.5.2
-        version: 3.5.2(vite@7.0.5(@types/node@24.1.0)(jiti@2.4.2)(lightningcss@1.30.1)(yaml@2.8.0))
       vite-plugin-dts:
         specifier: ^4.5.4
         version: 4.5.4(@types/node@24.1.0)(rollup@4.45.1)(typescript@5.8.3)(vite@7.0.5(@types/node@24.1.0)(jiti@2.4.2)(lightningcss@1.30.1)(yaml@2.8.0))
+      vite-plugin-lib-inject-css:
+        specifier: ^2.2.2
+        version: 2.2.2(vite@7.0.5(@types/node@24.1.0)(jiti@2.4.2)(lightningcss@1.30.1)(yaml@2.8.0))
       vite-plugin-static-copy:
         specifier: ^3.1.1
         version: 3.1.1(vite@7.0.5(@types/node@24.1.0)(jiti@2.4.2)(lightningcss@1.30.1)(yaml@2.8.0))
@@ -135,6 +138,64 @@ packages:
   '@ampproject/remapping@2.3.0':
     resolution: {integrity: sha512-30iZtAPgz+LTIYoeivqYo853f02jBYSd5uGnGpkFV0M3xOt9aN73erkgYAmZU43x4VfqcnLxW9Kpg3R5LC4YYw==}
     engines: {node: '>=6.0.0'}
+
+  '@ast-grep/napi-darwin-arm64@0.36.3':
+    resolution: {integrity: sha512-uM0Hrm5gcHqaBL64ktmPBFMTorTlPKWsUfi0E2Cg09GJfeYWvZmicCqgd7qVtjURmQvFQdb4JSqHIkJvws6Uqw==}
+    engines: {node: '>= 10'}
+    cpu: [arm64]
+    os: [darwin]
+
+  '@ast-grep/napi-darwin-x64@0.36.3':
+    resolution: {integrity: sha512-wEMeQw8lRL66puG2m8m0kDRQDtubygj59HA/cmut2V5SPx/13BN3wuEk6JPv97gqGUCUGhG2+5Z6UZ/Ll2q01Q==}
+    engines: {node: '>= 10'}
+    cpu: [x64]
+    os: [darwin]
+
+  '@ast-grep/napi-linux-arm64-gnu@0.36.3':
+    resolution: {integrity: sha512-sMsTMaUjW7SM8KPbLviCSBuM4zgJcwvie1yZI92HKSlFzC7ABe7X7UvyUREB+JwqccDVEL5yOJAjqB8eFSCizw==}
+    engines: {node: '>= 10'}
+    cpu: [arm64]
+    os: [linux]
+
+  '@ast-grep/napi-linux-arm64-musl@0.36.3':
+    resolution: {integrity: sha512-2XRmNYuovZu0Pa4J3or4PKMkQZnXXfpVcCrPwWB/2ytX7XUo+TWLgYE8rPVnJOyw5zujkveFb0XUrro9mQgLzw==}
+    engines: {node: '>= 10'}
+    cpu: [arm64]
+    os: [linux]
+
+  '@ast-grep/napi-linux-x64-gnu@0.36.3':
+    resolution: {integrity: sha512-mTwPRbBi1feGqR2b5TWC5gkEDeRi8wfk4euF5sKNihfMGHj6pdfINHQ3QvLVO4C7z0r/wgWLAvditFA0b997dg==}
+    engines: {node: '>= 10'}
+    cpu: [x64]
+    os: [linux]
+
+  '@ast-grep/napi-linux-x64-musl@0.36.3':
+    resolution: {integrity: sha512-tMGPrT+zuZzJK6n1cD1kOii7HYZE9gUXjwtVNE/uZqXEaWP6lmkfoTMbLjnxEe74VQbmaoDGh1/cjrDBnqC6Uw==}
+    engines: {node: '>= 10'}
+    cpu: [x64]
+    os: [linux]
+
+  '@ast-grep/napi-win32-arm64-msvc@0.36.3':
+    resolution: {integrity: sha512-7pFyr9+dyV+4cBJJ1I57gg6PDXP3GBQeVAsEEitzEruxx4Hb4cyNro54gGtlsS+6ty+N0t004tPQxYO2VrsPIg==}
+    engines: {node: '>= 10'}
+    cpu: [arm64]
+    os: [win32]
+
+  '@ast-grep/napi-win32-ia32-msvc@0.36.3':
+    resolution: {integrity: sha512-MPAgccH9VscRaFuEBMzDGPS+3c4cKNVGIVJ7WSNa1nZtLQ0eFEaPJ7pyDnCezgVSxfNFVYBvKyyF/vcm7Qc9+A==}
+    engines: {node: '>= 10'}
+    cpu: [ia32]
+    os: [win32]
+
+  '@ast-grep/napi-win32-x64-msvc@0.36.3':
+    resolution: {integrity: sha512-TIVtuSbXhty9kaSEfr4ULWx5PAuUeGgUkFaR60lmOs7sGTWgpig+suwKfTmevoAblFknCW/aMHOwziwJoUZA6A==}
+    engines: {node: '>= 10'}
+    cpu: [x64]
+    os: [win32]
+
+  '@ast-grep/napi@0.36.3':
+    resolution: {integrity: sha512-ExypohE8L7FvKBHxu7UpwcV9XVfyS+AqNZKyKIfxYwJyD9l7Gw6pmMYd7J2uopJsPEIUf44/emEFds6nFUx/dw==}
+    engines: {node: '>= 10'}
 
   '@babel/code-frame@7.27.1':
     resolution: {integrity: sha512-cjQ7ZlQ0Mv3b47hABuTevyTuYN4i+loJKGeV9flcCgIK37cCXRh+L1bd3iBHlynerhQ7BhCkn2BPbQUL+rGqFg==}
@@ -2829,6 +2890,11 @@ packages:
     resolution: {integrity: sha512-g6QUff04oZpHs0eG5p83rFLhHeV00ug/Yf9nZM6fLeUrPguBTkTQOdpAWWspMh55TZfVQDPaN3NQJfbVRAxdIw==}
     engines: {iojs: '>=1.0.0', node: '>=0.10.0'}
 
+  rollup-preserve-directives@1.1.3:
+    resolution: {integrity: sha512-oXqxd6ZzkoQej8Qt0k+S/yvO2+S4CEVEVv2g85oL15o0cjAKTKEuo2MzyA8FcsBBXbtytBzBMFAbhvQg4YyPUQ==}
+    peerDependencies:
+      rollup: ^2.0.0 || ^3.0.0 || ^4.0.0
+
   rollup@4.45.1:
     resolution: {integrity: sha512-4iya7Jb76fVpQyLoiVpzUrsjQ12r3dM7fIVz+4NwoYvZOShknRmiv+iu9CClZml5ZLGb0XMcYLutK6w9tgxHDw==}
     engines: {node: '>=18.0.0', npm: '>=8.0.0'}
@@ -3235,11 +3301,6 @@ packages:
     engines: {node: ^18.0.0 || ^20.0.0 || >=22.0.0}
     hasBin: true
 
-  vite-plugin-css-injected-by-js@3.5.2:
-    resolution: {integrity: sha512-2MpU/Y+SCZyWUB6ua3HbJCrgnF0KACAsmzOQt1UvRVJCGF6S8xdA3ZUhWcWdM9ivG4I5az8PnQmwwrkC2CAQrQ==}
-    peerDependencies:
-      vite: '>2.0.0-0'
-
   vite-plugin-dts@4.5.4:
     resolution: {integrity: sha512-d4sOM8M/8z7vRXHHq/ebbblfaxENjogAAekcfcDCCwAyvGqnPrc7f4NZbvItS+g4WTgerW0xDwSz5qz11JT3vg==}
     peerDependencies:
@@ -3248,6 +3309,11 @@ packages:
     peerDependenciesMeta:
       vite:
         optional: true
+
+  vite-plugin-lib-inject-css@2.2.2:
+    resolution: {integrity: sha512-NF30p0GwtfSAmVlxo2NgPXM2rEdtgV7LFi4lkzajKD7P3Ru/ZAFmI533M0Z5qyMZpvNMxVGkewzpjD0HOWtbDQ==}
+    peerDependencies:
+      vite: '*'
 
   vite-plugin-static-copy@3.1.1:
     resolution: {integrity: sha512-oR53SkL5cX4KT1t18E/xU50vJDo0N8oaHza4EMk0Fm+2/u6nQivxavOfrDk3udWj+dizRizB/QnBvJOOQrTTAQ==}
@@ -3433,6 +3499,45 @@ snapshots:
     dependencies:
       '@jridgewell/gen-mapping': 0.3.12
       '@jridgewell/trace-mapping': 0.3.29
+
+  '@ast-grep/napi-darwin-arm64@0.36.3':
+    optional: true
+
+  '@ast-grep/napi-darwin-x64@0.36.3':
+    optional: true
+
+  '@ast-grep/napi-linux-arm64-gnu@0.36.3':
+    optional: true
+
+  '@ast-grep/napi-linux-arm64-musl@0.36.3':
+    optional: true
+
+  '@ast-grep/napi-linux-x64-gnu@0.36.3':
+    optional: true
+
+  '@ast-grep/napi-linux-x64-musl@0.36.3':
+    optional: true
+
+  '@ast-grep/napi-win32-arm64-msvc@0.36.3':
+    optional: true
+
+  '@ast-grep/napi-win32-ia32-msvc@0.36.3':
+    optional: true
+
+  '@ast-grep/napi-win32-x64-msvc@0.36.3':
+    optional: true
+
+  '@ast-grep/napi@0.36.3':
+    optionalDependencies:
+      '@ast-grep/napi-darwin-arm64': 0.36.3
+      '@ast-grep/napi-darwin-x64': 0.36.3
+      '@ast-grep/napi-linux-arm64-gnu': 0.36.3
+      '@ast-grep/napi-linux-arm64-musl': 0.36.3
+      '@ast-grep/napi-linux-x64-gnu': 0.36.3
+      '@ast-grep/napi-linux-x64-musl': 0.36.3
+      '@ast-grep/napi-win32-arm64-msvc': 0.36.3
+      '@ast-grep/napi-win32-ia32-msvc': 0.36.3
+      '@ast-grep/napi-win32-x64-msvc': 0.36.3
 
   '@babel/code-frame@7.27.1':
     dependencies:
@@ -6043,6 +6148,11 @@ snapshots:
 
   reusify@1.1.0: {}
 
+  rollup-preserve-directives@1.1.3(rollup@4.45.1):
+    dependencies:
+      magic-string: 0.30.17
+      rollup: 4.45.1
+
   rollup@4.45.1:
     dependencies:
       '@types/estree': 1.0.8
@@ -6469,10 +6579,6 @@ snapshots:
       - tsx
       - yaml
 
-  vite-plugin-css-injected-by-js@3.5.2(vite@7.0.5(@types/node@24.1.0)(jiti@2.4.2)(lightningcss@1.30.1)(yaml@2.8.0)):
-    dependencies:
-      vite: 7.0.5(@types/node@24.1.0)(jiti@2.4.2)(lightningcss@1.30.1)(yaml@2.8.0)
-
   vite-plugin-dts@4.5.4(@types/node@24.1.0)(rollup@4.45.1)(typescript@5.8.3)(vite@7.0.5(@types/node@24.1.0)(jiti@2.4.2)(lightningcss@1.30.1)(yaml@2.8.0)):
     dependencies:
       '@microsoft/api-extractor': 7.52.8(@types/node@24.1.0)
@@ -6491,6 +6597,13 @@ snapshots:
       - '@types/node'
       - rollup
       - supports-color
+
+  vite-plugin-lib-inject-css@2.2.2(vite@7.0.5(@types/node@24.1.0)(jiti@2.4.2)(lightningcss@1.30.1)(yaml@2.8.0)):
+    dependencies:
+      '@ast-grep/napi': 0.36.3
+      magic-string: 0.30.17
+      picocolors: 1.1.1
+      vite: 7.0.5(@types/node@24.1.0)(jiti@2.4.2)(lightningcss@1.30.1)(yaml@2.8.0)
 
   vite-plugin-static-copy@3.1.1(vite@7.0.5(@types/node@24.1.0)(jiti@2.4.2)(lightningcss@1.30.1)(yaml@2.8.0)):
     dependencies:

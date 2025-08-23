@@ -39,159 +39,96 @@ npm install @tiiqu/ui
 
 ## 🚀 Getting Started
 
-```tsx
-import { Button } from "@tiiqu/ui";
 
-export default function Example() {
-  return <Button intent="primary">Click Me</Button>;
-}
-```
+# ✅ Button
 
-## 🧱 Components
+A fully customizable, accessible React button component with built-in **loading state**, **icon support**, and **ripple effect**. Designed for flexibility using **Class Variance Authority** for variants.
 
-```
-✅ Button
-```
+## Features
 
+- Supports **variants** like `intent`, `size`, and `radius`.
+- Built-in **loading state** with customizable loader.
+- Optional **start and end icons**.
+- Full-width support with `fullWidth` prop.
+- Ripple effect on click.
+- Compatible with standard HTML button attributes.
+- Works seamlessly in **client-side React** (`"use client"`).
 
+## Props
 
-The `Button` component is a flexible, theme-aware, utility-first button built using Tailwind CSS and [class-variance-authority (CVA)](https://cva.style/). 
-It supports multiple variants (`intent`), sizes, and boolean states like `disabled` and `fullWidth`.
+| Prop         | Type                                     | Default     | Description                                                       |
+| ------------ | ---------------------------------------  | -------     | ----------------------------------------------------------------- |
+| `intent`     | `string` (variant)                       | —           | Sets the button style variant (primary, secondary, etc.).         |
+| `size`       | `string` (variant)                       | —           | Controls the button size.                                         |
+| `radius`     | `string` (variant)                       | —           | Controls the border radius.                                       |
+| `loading`    | `boolean`                                | `false`     | Shows loading state and disables the button.                      |
+| `loader`     | `ReactNode`                              | `<Loader />`| Custom loader component to display when `loading` is true.        |
+| `iconStart`  | `ReactNode`                              | —           | Optional icon displayed before the button text.                   |
+| `iconEnd`    | `ReactNode`                              | —           | Optional icon displayed after the button text.                    |
+| `fullWidth`  | `boolean`                                | `false`     | Makes the button span the full width of its container.            |
+| `disabled`   | `boolean`                                | `false`     | Disables the button.                                              |
 
----
+All other native `button` attributes (like `onClick`, `type`, etc.) are supported.
 
-## 🎨 Variants (`intent`)
-
-Supported button styles via the `intent` prop:
-
-- `primary`
-- `secondary`
-- `light_primary`
-- `light_secondary`
-- `outline_primary`
-- `outline_secondary`
-- `borderless_primary`
-- `borderless_secondary`
-- `grab_outline`
-
----
-
-## 📏 Sizes (`size`)
-
-- `sm` – Small
-- `md` – Medium (default)
-- `lg` – Large
-
----
-
-## ✅ Boolean Props
-
-- `disabled`: Disables the button and applies dimmed styles.
-- `fullWidth`: Makes the button stretch to 100% width. Defaults to `true`.
-
----
-
-## 📦 Usage
+## Usage
 
 ```tsx
-import { Button } from '@/components/ui/button';
+import { Button } from "@/components/ui/Button";
+import { Loader } from "@/svg/Loader";
 
-<Button>Default</Button>
-
-<Button intent="primary">Primary</Button>
-<Button intent="outline_secondary">Secondary Outline</Button>
-<Button intent="grab_outline">Grab Outline</Button>
-
-<Button intent="borderless_primary" size="sm">Small Link</Button>
-<Button intent="light_secondary" disabled>Disabled</Button>
-<Button intent="outline_primary" fullWidth={false}>Fixed Width</Button>
-
-```
-
-
-## 🎨 Theming
-
-You can customize the look and feel of the components using the className props. Override colors, spacing, or other utilities.
-
-
-```css
-@theme {
-  --color-tiiqu-primary: #18e1c9;
-  --color-tiiqu-secondary: #034459;
-
-  --color-tiiqu-primary-light: #18e1c966;
-  --color-tiiqu-secondary-light: #03445966;
-
-  --color-tiiqu-gray: #e6ecee;
-
-  --color-tiiqu-white: #ffffff;
-}
-
-```
-
-## 🛠️ Customization
-
-You can customize the button further by passing your own Tailwind or custom CSS classes via the className prop.
-
-```tsx
-<Button intent="primary" className="shadow-lg hover:scale-105 transition-transform">
-  Custom Styled Button
+<Button intent="primary" size="md" onClick={() => alert("Clicked!")}>
+  Click Me
 </Button>
 
+<Button loading intent="secondary" loader={<Loader />}>
+  Loading...
+</Button>
 
+<Button iconStart={<Icon />} iconEnd={<Arrow />} fullWidth>
+  Button with Icons
+</Button>
 ```
 
 
-## 🪟 Modal
 
-The `Modal` component provides an accessible, customizable modal dialog powered by native HTML `<dialog>` with smooth animations and Tailwind CSS styling.
+# 🪟 Modal
 
----
+A fully controllable, accessible React modal component with **imperative API** using refs. Supports **custom close icons**, backdrop clicks, and keyboard escape handling. Built for client-side usage (`"use client"`).
 
-### 🚀 Usage
+## Features
+
+- Imperative API via `ref` (`toggle`, `open`, `close`).
+- Optional close icon in the top-right corner.
+- Close modal on **backdrop click**.
+- Close modal on **Escape key** press.
+- Fully customizable via `className` prop.
+- Works with any ReactNode as children.
+
+## Props
+
+| Prop             | Type                      | Default      | Description                                    |
+| ---------------- | ------------------------- | -------      | ---------------------------------------------- |   
+| `children`       | `ReactNode`               | —            | The content to render inside the modal.        |
+| `className`      | `string`                  | —            | Additional classes for the modal container.    | 
+| `showCloseIcon`  | `boolean`                 | `true`       | Show the close button in the top-right corner. |
+| `closeIcon`      | `ReactNode`               | `<Cancel />` | Optional custom icon for the close button.     |
+| `modalRef`       | `RefObject<ModalHandle>`  | —            | Ref to control the modal imperatively.         |
+| `onBackdropClick`| `() => void`              | —            | Callback when the backdrop is clicked.         |
+
+## ModalHandle
+
+The `modalRef` exposes the following methods:
 
 ```tsx
-import { Modal } from "@tiiqu/ui";
-import React, { useState } from "react";
-
-export default function Example() {
-  const [open, setOpen] = useState(false);
-
-  return (
-    <>
-      <button onClick={() => setOpen(true)} className="btn-primary">
-        Open Modal
-      </button>
-
-      <Modal
-        open={open}
-        onClose={() => setOpen(false)}
-        showCloseIcon={true}
-      >
-        <div>
-            <p>This is the modal content area.</p>
-        </div>
-      </Modal>
-    </>
-  );
-}
+type ModalHandle = {
+  toggle: () => void;
+  open: () => void;
+  close: () => void;
+};
 ```
-
-## 📋 Props
-
-| Name            | Type         | Default     | Description                                 |
-| --------------- | ------------ | ----------- | ------------------------------------------- |
-| `open`          | `boolean`    | required    | Controls visibility of the modal            |
-| `onClose`       | `() => void` | required    | Callback fired when modal requests to close |
-| `children`      | `ReactNode`  | required    | Content inside the modal                    |
-| `className`     | `string`     | `undefined` | Additional CSS classes for modal container  |
-| `showCloseIcon` | `boolean`    | `true`      | Show or hide the close (X) button           |
-| `closeIcon`     | `ReactNode`  | `undefined` | Custom icon to replace default close icon   |
-
-
 ---
 
-## 🧾 Accordion Component
+# 🧾 Accordion Component
 
 The `Accordion` component is a flexible and generic expandable/collapsible UI element that accepts any data type and renders titles and content based on user-provided render functions.
 
@@ -226,6 +163,130 @@ export default function Example() {
     />
   );
 }
+```
+
+## Carousel
+
+A flexible and responsive React carousel component with **customizable navigation buttons** and smooth transition effects. Supports any ReactNode slides and automatic slide cloning for seamless infinite loops.
+
+## Props
+
+| Prop                  | Type             | Default | Description                                   |
+| --------------------- | ---------------- | ------- | --------------------------------------------- |
+| `children`            | `ReactNode[]`    | —       | An array of React nodes to display as slides. |
+| `className`           | `string`         | —       | Custom classes for the carousel wrapper.      |
+| `prevButton`          | `ReactNode`      | —       | Custom previous button element.               |
+| `nextButton`          | `ReactNode`      | —       | Custom next button element.                   |
+| `prevButtonClassName` | `string`         | —       | Additional classes for the previous button.   |
+| `nextButtonClassName` | `string`         | —       | Additional classes for the next button.       |
+| `transitionDuration`  | `number`         | `500`   | Slide transition duration in milliseconds.    |
+
+## Features
+
+- Smooth sliding transitions with configurable duration.
+- Supports custom **prev/next buttons** and styles.
+- Handles infinite loop seamlessly using slide cloning.
+- Fully responsive and works with any ReactNode children.
+
+## Usage
+
+```tsx
+import { Carousel } from "@/components/ui/Carousel";
+
+const testimonialList = [
+  { name: "John Doe", position: "CEO", from: "Company A", content: "Great product!" },
+  { name: "Jane Smith", position: "CTO", from: "Company B", content: "Highly recommend!" },
+  // Add more testimonials...
+];
+
+export default function Example() {
+  return (
+    <Carousel>
+      {testimonialList.map((item) => (
+        <div
+          key={`${item.name}-${item.position}-${item.from}`}
+          className="py-14 px-9 md:py-20 md:px-12 text-secondary"
+        >
+          <p className="mb-6 opacity-80">{item.content}</p>
+          <h5 className="text-[19px] font-medium">
+            -{item.name}, {item.position}, {item.from}
+          </h5>
+        </div>
+      ))}
+    </Carousel>
+  );
+}
+```
+
+
+# Accordion
+
+A fully customizable, generic React Accordion component. Supports custom headings, content, and toggle icons for each item. Keyboard navigation is built-in.
+
+## Props
+
+| Prop                       | Type                                                      | Default | Description                                                                         |
+| -------------------------- | --------------------------------------------------------- | ------- | ----------------------------------------------------------------------------------- |
+| `items`                     | `AccordionItem<T>[]`                                     | —       | Array of accordion items. Each item can have an optional `id`.                      |
+| `renderHeading`             | `(item: AccordionItem<T>, isOpen: boolean) => ReactNode` | —       | Function to render the heading of each panel. Receives the item and its open state. |
+| `renderContent`             | `(item: AccordionItem<T>, isOpen: boolean) => ReactNode` | —       | Function to render the content of each panel. Receives the item and its open state. |
+| `renderToggleIcon`          | `(isOpen: boolean) => ReactNode`                         | —       | Optional function to render a custom toggle icon based on open state.               |
+| `panelClassName`            | `string`                                                 | —       | Additional classes for each accordion panel.                                        |
+| `panelHeadingClassName`     | `string`                                                 | —       | Additional classes for the heading section of each panel.                           |
+| `panelContentClassName`     | `string`                                                 | —       | Additional classes for the content section of each panel.                           |
+| `panelButtonClassName`      | `string`                                                 | —       | Additional classes for the toggle button in each panel.                             |
+| `idKey`                     | `keyof T \| string`                                      | `"id"`  | Key in the item object to use as a unique identifier.                               |
+
+## Usage Example
+
+```tsx
+import { Accordion, type AccordionItem } from "@/components/ui/Accordion";
+
+type FAQ = {
+  question: string;
+  answer: string;
+};
+
+const faqItems: AccordionItem<FAQ>[] = [
+  { id: "1", question: "What is your return policy?", answer: "You can return within 30 days." },
+  { id: "2", question: "Do you offer support?", answer: "Yes, 24/7 customer support." },
+];
+
+export default function FAQAccordion() {
+  return (
+    <Accordion
+      items={faqItems}
+      renderHeading={(item, isOpen) => (
+        <h3 className="font-semibold">{item.question} {isOpen ? "-" : "+"}</h3>
+      )}
+      renderContent={(item) => <p>{item.answer}</p>}
+      panelClassName="border-b border-gray-200"
+      panelHeadingClassName="p-4 cursor-pointer"
+      panelContentClassName="p-4 text-gray-600"
+    />
+  );
+}
+```
+
+## 🎨 Theming
+
+You can customize the look and feel of the components using the className props. Override colors, spacing, or other utilities.
+
+
+```css
+@theme {
+  --color-tiiqu-primary: #18e1c9;
+  --color-tiiqu-secondary: #034459;
+
+  --color-tiiqu-primary-light: #18e1c966;
+  --color-tiiqu-secondary-light: #03445966;
+
+  --color-tiiqu-gray: #e6ecee;
+
+  --color-tiiqu-white: #ffffff;
+}
+
+```
 
 
 

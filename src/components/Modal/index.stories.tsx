@@ -1,7 +1,8 @@
-import React, { useState } from "react";
+import React from "react";
 import type { Meta, StoryObj } from "@storybook/react-vite";
-
-import { Modal, ModalProps } from ".";
+import { Button } from "../Button";
+import { useRef, type ComponentProps } from "react";
+import { Modal, type ModalHandle } from ".";
 
 const meta: Meta<typeof Modal> = {
 	title: "Components/Modal",
@@ -10,36 +11,58 @@ const meta: Meta<typeof Modal> = {
 		layout: "centered",
 	},
 	tags: ["autodocs"],
+	argTypes: {
+		children: {
+			control: false,
+			description: "Modal content.",
+			table: {
+				type: { summary: "ReactNode" },
+			},
+		},
+		className: {
+			control: { type: "text" },
+			description: "Custom classes to apply to the modal container.",
+			table: {
+				type: { summary: "string" },
+			},
+		},
+		showCloseIcon: {
+			control: { type: "boolean" },
+			description: "Show the close button in the top-right corner.",
+			table: {
+				type: { summary: "boolean" },
+				defaultValue: { summary: "true" },
+			},
+		},
+		closeIcon: {
+			control: false,
+			description: "Optional custom icon for the close button.",
+			table: {
+				type: { summary: "ReactNode" },
+			},
+		},
+	},
 };
 
 export default meta;
 
 type Story = StoryObj<typeof Modal>;
 
-type ModalWrapperProps = Omit<ModalProps, "open" | "onClose">;
-
-const ModalWrapper = ({ children, ...rest }: ModalWrapperProps) => {
-	const [open, setOpen] = useState(false);
+const ModalWrapper = (args: Omit<ComponentProps<typeof Modal>, "modalRef">) => {
+	const modalRef = useRef<ModalHandle>(null);
 
 	return (
-		<>
-			<button
-				className="border-tiiqu-secondary border-[1px] rounded-lg hover:border-tiiqu-gray transition-colors ease-in-out duration-150 min-h-[3.1874rem] min-w-[12.8125rem] px-4 cursor-pointer text-tiiqu-secondary"
-				type="button"
-				onClick={() => setOpen(true)}
-			>
-				Open Modal
-			</button>
-			<Modal open={open} onClose={() => setOpen(false)} {...rest}>
-				{children ?? <p>This is the modal content.</p>}
+		<div className="relative w-full h-full">
+			<Button onClick={() => modalRef.current?.toggle()}>Open Modal</Button>
+			<Modal modalRef={modalRef} {...args}>
+				<p>Hello from modal!</p>
 			</Modal>
-		</>
+		</div>
 	);
 };
-
 export const Default: Story = {
-	render: (args) => <ModalWrapper {...args} />,
 	args: {
 		showCloseIcon: true,
 	},
+	render: (args) => <ModalWrapper {...args} />,
 };

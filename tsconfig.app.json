@@ -28,11 +28,5 @@
 		"noUncheckedSideEffectImports": true
 	},
 	"include": ["src"],
-	"exclude": [
-		"**/*.stories.ts",
-		"**/*.stories.tsx",
-		"**/*.stories.js",
-		"**/*.stories.jsx",
-		"**/*.stories.mdx"
-	]
+	"exclude": ["**/*.stories.ts", "**/*.stories.tsx"]
 }

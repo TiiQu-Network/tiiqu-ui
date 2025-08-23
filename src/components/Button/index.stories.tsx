@@ -1,5 +1,4 @@
 import type { Meta, StoryObj } from "@storybook/react-vite";
-
 import { Button } from ".";
 
 const meta: Meta<typeof Button> = {
@@ -15,17 +14,19 @@ const meta: Meta<typeof Button> = {
 			options: [
 				"primary",
 				"secondary",
-				"light_primary",
-				"light_secondary",
-				"outline_primary",
-				"outline_secondary",
-				"borderless_primary",
-				"borderless_secondary",
+				"primary_outline",
+				"secondary_outline",
+				"primary_borderless",
+				"secondary_borderless",
 			],
 		},
 		size: {
 			control: "select",
-			options: ["sm", "md", "lg"],
+			options: ["small", "medium"],
+		},
+		radius: {
+			control: "select",
+			options: ["none", "sm", "md", "lg", "xl", "full", "pill", "fat"],
 		},
 		fullWidth: {
 			control: "boolean",
@@ -33,16 +34,22 @@ const meta: Meta<typeof Button> = {
 		disabled: {
 			control: "boolean",
 		},
-	},
-	args: {
-		size: "md",
-		fullWidth: true,
-		disabled: false,
+		loading: {
+			control: "boolean",
+		},
+		iconStart: {
+			control: false,
+		},
+		iconEnd: {
+			control: false,
+		},
+		loader: {
+			control: false,
+		},
 	},
 };
 
 export default meta;
-
 type Story = StoryObj<typeof Button>;
 
 export const Primary: Story = {
@@ -59,68 +66,16 @@ export const Secondary: Story = {
 	},
 };
 
-export const PrimaryLight: Story = {
-	args: {
-		children: "Primary Light",
-		intent: "light_primary",
-	},
-};
-
-export const SecondaryLight: Story = {
-	args: {
-		children: "Secondary Light",
-		intent: "light_secondary",
-	},
-};
-
 export const PrimaryOutline: Story = {
 	args: {
 		children: "Primary Outline",
-		intent: "outline_primary",
+		intent: "primary_outline",
 	},
 };
 
 export const SecondaryOutline: Story = {
 	args: {
 		children: "Secondary Outline",
-		intent: "outline_secondary",
-	},
-};
-
-export const GrayOutline: Story = {
-	args: {
-		children: "Gray Outline",
-		intent: "outline_gray",
-	},
-};
-
-export const PrimaryBorderless: Story = {
-	args: {
-		children: "Primary Borderless",
-		intent: "borderless_primary",
-	},
-};
-
-export const SecondaryBorderless: Story = {
-	args: {
-		children: "Secondary Borderless",
-		intent: "borderless_secondary",
-	},
-};
-
-export const DisabledPrimary: Story = {
-	args: {
-		children: "Disabled Primary",
-		intent: "primary",
-		disabled: true,
-	},
-};
-
-export const LargeOutlineSecondary: Story = {
-	args: {
-		children: "Large Outline Secondary",
-		intent: "outline_secondary",
-		size: "lg",
-		fullWidth: false,
+		intent: "secondary_outline",
 	},
 };
