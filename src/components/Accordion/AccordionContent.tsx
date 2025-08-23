@@ -27,9 +27,9 @@ export const AccordionContent = <T,>({
 			className={cn("transition-all duration-300", className)}
 		>
 			<div ref={contentRef}>
-				<p className="font-normal text-black pb-4 px-4">
+				<section className="font-normal text-black pb-4 px-4">
 					{renderContent(item, isOpen)}
-				</p>
+				</section>
 			</div>
 		</section>
 	);
