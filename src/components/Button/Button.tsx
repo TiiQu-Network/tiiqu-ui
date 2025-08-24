@@ -43,7 +43,7 @@ export const Button: FC<ButtonProps> = ({
 		<button
 			onClick={handleClick}
 			className={cn(
-				"relative overflow-hidden",
+				"relative overflow-hidden focus:outline-transparent",
 				buttonVariant({
 					intent,
 					size,
