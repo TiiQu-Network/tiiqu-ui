@@ -1,7 +1,7 @@
 import { cva } from "class-variance-authority";
 
 export const buttonVariant = cva(
-	"inline-flex items-center justify-center gap-1  py-2 cursor-pointer transition-all duration-300 ease-in-out px-4 text-base focus:outline-none focus:ring-2 focus:ring-slate-300 focus:ring-offset-2",
+	"inline-flex items-center justify-center gap-1  py-2 cursor-pointer transition-all duration-300 ease-in-out px-4 text-base",
 	{
 		variants: {
 			intent: {
